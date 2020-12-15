@@ -1,0 +1,7 @@
+# Project exclude paths
+
+**/*.iml
+**/.*
+!/.gitignore
+/gradlew
+/gradlew.bat
