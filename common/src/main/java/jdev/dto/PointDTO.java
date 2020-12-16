@@ -3,6 +3,8 @@ package jdev.dto;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
+import java.io.IOException;
+
 public class PointDTO {
     private double lat;
     private double lon;
@@ -33,6 +35,23 @@ public class PointDTO {
     public String toJson() throws JsonProcessingException {
         ObjectMapper mapper = new ObjectMapper();
         return mapper.writeValueAsString(this);
+    }
+
+    public void setThis (PointDTO dto) {
+        setLat      (dto.lat);
+        setLon      (dto.lon);
+        setAutoId   (dto.autoId);
+        setTime     (dto.time);
+    }
+
+    public void fromJson(String json) {
+        ObjectMapper mapper = new ObjectMapper();
+        try {
+            PointDTO dto = mapper.readValue(json, PointDTO.class);
+            setThis(dto);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     @Override

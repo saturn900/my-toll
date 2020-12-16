@@ -31,4 +31,12 @@ public class PointDTOTest {
         assertEquals(autoId, dto.getAutoId());
         assertEquals(1606631051960L, dto.getTime());
     }
+
+    @Test
+    public void encodeDTO() {
+        PointDTO dto = new PointDTO();
+        dto.fromJson(expected);
+        assertEquals(autoId, dto.getAutoId());
+//        assertEquals(autoId + "_wrongId", dto.getAutoId());
+    }
 }
