@@ -21,6 +21,18 @@ project(':server-core') {
     }
 }
 
+project(':server-ui') {
+    dependencies {
+        compile project(':common')
+    }
+}
+
+project(':tracker-ui') {
+    dependencies {
+        compile project(':common')
+    }
+}
+
 buildscript {
     repositories {
         mavenCentral()

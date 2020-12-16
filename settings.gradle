@@ -5,5 +5,3 @@ include 'server-core'
 include 'tracker-core'
 include 'server-ui'
 include 'tracker-ui'
-include 'common'
-
