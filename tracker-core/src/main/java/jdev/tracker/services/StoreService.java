@@ -7,7 +7,6 @@ import java.util.List;
 import java.util.concurrent.BlockingDeque;
 import java.util.concurrent.LinkedBlockingDeque;
 
-@Service//("scheduledStorageService")
 public class StoreService {
 
     private final BlockingDeque<String> storage = new LinkedBlockingDeque<>();
