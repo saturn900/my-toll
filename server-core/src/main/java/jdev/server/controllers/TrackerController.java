@@ -18,10 +18,11 @@ public class TrackerController {
     private static final Logger log = LoggerFactory.getLogger(TrackerController.class);
 
     @PostMapping(value = "/upload")
-    public void receiveWrappedTrackingList(@RequestBody TrackDTO track)
+    public TrackDTO receiveWrappedTrackingList(@RequestBody TrackDTO track)
             throws JsonProcessingException {
 
         extractJsonPoints(track.getTrack()).forEach(log::info);
+        return track;
     }
 
     private List<String> extractJsonPoints(ArrayList<PointDTO> points) throws JsonProcessingException {

@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
+import org.springframework.http.ResponseEntity;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
@@ -49,7 +50,10 @@ public class DispatchService {
 //            restTemplate.postForEntity(uri, td, String.class);
 //            restTemplate.postForEntity(uri, requestEntity, String.class);
 //            restTemplate.exchange(uri, HttpMethod.POST, requestEntity, String.class);
-            restTemplate.exchange(uri, HttpMethod.POST, requestEntity, TrackDTO.class);
+            ResponseEntity<TrackDTO> response =
+                    restTemplate.exchange(uri, HttpMethod.POST, requestEntity, TrackDTO.class);
+
+            log.info(response.getBody().toJson());
 
             extractJsonPoints(points).forEach(log::info);
         }
