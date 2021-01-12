@@ -5,32 +5,32 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 import java.io.IOException;
 
-public class Point {
+public class PointDTO {
 
     private String lat;
     private String lon;
     private String autoId;
     private long time;
 
-    public Point(String lat, String lon, String autoId, long time) {
-        this.autoId = autoId;
+    public PointDTO(String lat, String lon, String autoId, long time) {
         this.lat    = lat;
         this.lon    = lon;
+        this.autoId = autoId;
         this.time   = time;
     }
 
-    public Point(Point point) {
+    public PointDTO(PointDTO point) {
         setPoint(point);
     }
 
-    public void setPoint(Point point) {
+    public void setPoint(PointDTO point) {
         setLat      (point.lat);
         setLon      (point.lon);
         setAutoId   (point.autoId);
         setTime     (point.time);
     }
 
-    public Point() {
+    public PointDTO() {
     }
 
     public String getLat() {
@@ -68,13 +68,13 @@ public class Point {
 
     public void fromJson(String json) throws IOException {
         ObjectMapper mapper = new ObjectMapper();
-        Point dto = mapper.readValue(json, Point.class);
+        PointDTO dto = mapper.readValue(json, PointDTO.class);
         setPoint(dto);
     }
 
     @Override
     public String toString() {
-        return "Point{"         +
+        return "PointDTO{"         +
                 "lat='"         + lat    +
                 "', lon='"      + lon    +
                 "', autoId='"   + autoId +

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://earth.google.com/kml/2.0">
+<Folder>
+<name>20150731_150500.db</name>
+<Style id="style">
+<LineStyle>
+<color>ff0000ff</color>
+<width>1.5</width>
+</LineStyle>
+<PolyStyle>
+<fill>0</fill>
+</PolyStyle>
+</Style>
+<open>1</open>
+<Placemark>
+<styleUrl>#style</styleUrl>
+<LineString>
+<extrude>0</extrude>
+<altitudeMode>absolute</altitudeMode>
+<coordinates>
+84.91792,51.70799,514 84.9179,51.70809,506 84.91792,51.70818,506 84.91786,51.70826,506 84.91776,51.70833,506 84.91765,51.7084,506 84.91754,51.70847,506 84.91744,51.70854,506 84.91736,51.70863,505 84.91733,51.70872,505</coordinates>
+</LineString>
+</Placemark>
+</Folder>
+</kml>

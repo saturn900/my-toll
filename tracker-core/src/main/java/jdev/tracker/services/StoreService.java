@@ -1,22 +1,22 @@
 package jdev.tracker.services;
 
+import jdev.dto.PointDTO;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
-import java.util.List;
 import java.util.concurrent.BlockingDeque;
 import java.util.concurrent.LinkedBlockingDeque;
 
 public class StoreService {
 
-    private final BlockingDeque<String> storage = new LinkedBlockingDeque<>();
+    private final BlockingDeque<PointDTO> storage = new LinkedBlockingDeque<>();
 
-    public void put(String point) throws InterruptedException {
+    public void put(PointDTO point) throws InterruptedException {
         storage.put(point);
     }
 
-    public List<String> takeAll() throws InterruptedException {
-        List<String> messageArray = new ArrayList<>();
+    public ArrayList<PointDTO> takeAll() throws InterruptedException {
+        ArrayList<PointDTO> messageArray = new ArrayList<>();
         while (!storage.isEmpty()) {
             messageArray.add(storage.takeFirst());
         }

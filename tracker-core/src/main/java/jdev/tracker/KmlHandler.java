@@ -1,6 +1,6 @@
 package jdev.tracker;
 
-import jdev.dto.Point;
+import jdev.dto.PointDTO;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.xml.sax.Attributes;
@@ -15,10 +15,9 @@ public class KmlHandler extends DefaultHandler {
     private static final DecimalFormat decimalFormat = new DecimalFormat( "#.00000" );
     private static final Logger log = LoggerFactory.getLogger(KmlHandler.class);
 
-    public List<Point> getTrack () { return lpoint; }
+    public ArrayList<PointDTO> getTrack () { return lpoint; }
 
-    private final Point point = new Point();
-    private final List<Point> lpoint = new ArrayList<>();
+    private final ArrayList<PointDTO> lpoint = new ArrayList<>();
 
     boolean bcoord = false;
     private long currentTime;
@@ -54,9 +53,9 @@ public class KmlHandler extends DefaultHandler {
             for (String w : points) {
                 String[] fields = w.split(",");
 
-                Point p = new Point (
-                        formatDouble(fields[0]),
-                        formatDouble(fields[1]),
+                PointDTO p = new PointDTO(
+                        replaceCommaByDot(formatDouble(fields[0])),
+                        replaceCommaByDot(formatDouble(fields[1])),
                         "WDB2020181A712669",
                         currentTime);
 
@@ -71,4 +70,6 @@ public class KmlHandler extends DefaultHandler {
     private String formatDouble(String arg) {
         return decimalFormat.format(Double.parseDouble(arg));
     }
+
+    private String replaceCommaByDot (String arg) { return arg.replace(',', '.'); }
 }

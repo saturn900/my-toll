@@ -1,6 +1,6 @@
 package jdev.tracker;
 
-import jdev.dto.Point;
+import jdev.dto.PointDTO;
 import org.xml.sax.SAXException;
 
 import javax.xml.parsers.ParserConfigurationException;
@@ -8,11 +8,12 @@ import javax.xml.parsers.SAXParser;
 import javax.xml.parsers.SAXParserFactory;
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 public class KmlParser {
 
-    private List<Point> track;
+    private final ArrayList<PointDTO> track;
     private int counter;
 
 //    @PostConstruct
@@ -33,9 +34,12 @@ public class KmlParser {
         counter = -1;
     }
 
-    public Point getNext () {
+    public PointDTO getNext () {
         counter = ++counter;
-        return track.get(counter);
+        if (counter < track.size())
+            return track.get(counter);
+        else
+            return null;
     }
 
 }
