@@ -34,12 +34,12 @@ public class TrackerContext {
     @Bean
     public KmlParser kmlParser() { return new KmlParser(); }
 
-//    @Bean
-//    public TaskScheduler poolScheduler() {
-//        ThreadPoolTaskScheduler scheduler = new ThreadPoolTaskScheduler();
-//        scheduler.setThreadNamePrefix("trackerPoolScheduler");
-//        scheduler.setPoolSize(20);
-//        return scheduler;
-//    }
+    @Bean
+    public TaskScheduler poolScheduler() {
+        ThreadPoolTaskScheduler scheduler = new ThreadPoolTaskScheduler();
+        scheduler.setThreadNamePrefix("trackerPoolScheduler");
+        scheduler.setPoolSize(20);
+        return scheduler;
+    }
 
 }
