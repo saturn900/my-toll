@@ -60,7 +60,13 @@ project(':server-core') {
 }
 
 project(':server-ui') {
+    apply plugin: 'org.springframework.boot'
+
     dependencies {
-        compile project(':common')
+        compile("org.springframework.boot:spring-boot-starter-thymeleaf")
+        compile("org.springframework.boot:spring-boot-starter-security")
+        testCompile("junit:junit")
+        testCompile("org.springframework.boot:spring-boot-starter-test")
+        testCompile("org.springframework.security:spring-security-test")
     }
 }
