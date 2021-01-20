@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+    <head>
+        <title>All the routes lead this way...</title>
+    </head>
+    <body>
+        <h1>Welcome!</h1>
+
+        <p><a th:href="@{/login}">Войти</a>.</p>
+        <p>Регистрация нового <a th:href="@{/registerClient}">клиента</a>.</p>
+        <p>Регистрация нового <a th:href="@{/registerManager}">админа</a>.</p>
+        <p><a th:href="@{/routes}">Маршруты</a>.</p>
+        <p><a th:href="@{/payments}">Платежи</a>.</p>
+    </body>
+</html>

@@ -2,6 +2,7 @@ package jdev.tracker;
 
 import jdev.dto.PointDTO;
 import org.xml.sax.SAXException;
+import org.xml.sax.XMLReader;
 
 import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.parsers.SAXParser;
@@ -24,6 +25,11 @@ public class KmlParser {
 
         try {
             SAXParser saxParser = parserFactory.newSAXParser();
+            XMLReader xmlReader = saxParser.getXMLReader();
+            String id = "http://apache.org/xml/properties/input-buffer-size";
+            Object value = new Integer(2048 * 16);
+            xmlReader.setProperty(id, value);
+
             File file = new File("tracker-core/src/main/resources/20150731_Peschanaya.kml");
             saxParser.parse(file, handler);
 

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+    <head>
+        <title>There are routes here!</title>
+    </head>
+    <body>
+        <h2 th:inline="text">Маршрут:</h2>
+        <h2 th:inline="text">Солоновка - Куяган.</h2>
+        <h3 th:inline="text">31 августа 2015 г.</h3>
+
+<!--        <p><img src="https://i.pinimg.com/originals/40/45/e3/4045e3444ec83ad672c4e6c550bb63cc.jpg"></p>-->
+<!--        <p><img src="img/pic.jpg"></p>-->
+
+        <form th:action="@{/logout}" method="post">
+            <input type="submit" value="Выйти из системы."/>
+        </form>
+    </body>
+</html>
